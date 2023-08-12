@@ -1,0 +1,29 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+    <h1>Peliculas y sus directores!!!</h1>
+{% endblock titulo %}
+
+
+{% block contenido %}
+    <h1>DIRECTORES!!!!!!!!</h1>
+
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Nacionalidad</th>
+            <th>Nacimiento</th>
+        </tr>
+    {% for c in directores %}
+    <tr>
+        <td>{{ c.nombre }}</td>
+        <td>{{ c.nacionalidad }}</td>
+        <td>{{ c.nacimiento }}</td>
+    </tr>  
+    {% endfor %}
+    </table>  
+{% endblock contenido %}
+    
+
+    

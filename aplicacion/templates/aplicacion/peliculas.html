@@ -7,8 +7,24 @@
 
 
 {% block contenido %}
-    <h1>PELICULAS!!!!!!!!</h1>
-{% endblock contenido %}
-    
+<h1>PELICULAS!!!!!!!!</h1> 
 
-    
+<table>
+    <tr>
+        <th>Titulo</th>
+        <th>Genero</th>
+        <th>Duracion</th>
+        <th>Director</th>
+    </tr>
+{% for c in peliculas %}
+<tr>
+    <td>{{ c.titulo }}</td>
+    <td>{{ c.genero.nombre }}</td>
+    <td>{{ c.duracion }}</td>
+    <td>{{ c.director.nombre }}</td>
+</tr>  
+{% endfor %}
+</table> 
+{% endblock contenido %}
+
+

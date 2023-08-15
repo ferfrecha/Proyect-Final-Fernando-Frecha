@@ -8,6 +8,19 @@
 
 {% block contenido %}
     <h1>GENEROS!!!!!!!!</h1>
+
+    <table>
+        <tr>
+        <th>Nombre</th>
+        <th>Descripcion</th>
+    </tr>
+    {% for c in generos %}
+    <tr>
+        <td>{{ c.nombre }}</td>
+        <td>{{ c.descripcion }}</td>
+    </tr>  
+    {% endfor %}
+    </table> 
 {% endblock contenido %}
     
 

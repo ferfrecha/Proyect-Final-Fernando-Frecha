@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>Nuevo Director</title>
+    </head>
+    <body>
+        <h2>Agregar un nuevo Director </h2>
+        <form action="" method="post">
+            {% csrf_token %} 
+            <p>Nombre: <input type="text" name="nombre" id="nombre"></p>
+            <p>Nacionalidad: <input type="text" name="nacionalidad" id="nacionalidad"></p>
+            <p>Nacimiento: <input type="number" name="nacimiento" id="nacimiento"></p>
+            <input type="submit" value="Enviar">
+        </form>
+    </body>
+    </html>

@@ -1,6 +1,11 @@
 {% extends 'aplicacion/base.html' %}
 {% load static %}
 
+{% block boton %}
+<a class="navbar-brand" href="{% url 'director_form' %}">Agregar Director</a>
+{% endblock boton %}
+
+
 {% block titulo %}
     <h1>Peliculas y sus directores!!!</h1>
 {% endblock titulo %}

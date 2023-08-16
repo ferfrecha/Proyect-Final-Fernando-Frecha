@@ -58,3 +58,19 @@ def director_form(request):
         director.save()
         return HttpResponse("Director guardado con exito")   
     return render(request, "aplicacion/director_form.html")  
+
+
+def buscarpelicula(request):
+    return render(request, "aplicacion/buscar_form.html")
+
+def buscar(request):
+    if 'buscar' in request.GET:
+        patron = request.GET['buscar']
+        peliculas = Pelicula.objects.filter(titulo__icontains=patron) 
+        contexto = {"peliculas": peliculas}
+        return render(request, "aplicacion/peliculas.html", contexto)
+    return HttpResponse("Búsqueda sin resultado")
+    
+    
+def contact(request):
+    return render(request, "aplicacion/contact.html")

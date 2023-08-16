@@ -1,0 +1,12 @@
+{% extends 'aplicacion/base_form.html' %}
+{% load static %}
+
+{% block contenido %}
+<h2>Buscar una Pelicula </h2>
+    <form action="/buscar" method="get">
+        {% csrf_token %} 
+        <p>Buscar Pelicula: <input type="text" name="buscar" id="buscar"></p>
+        <input type="submit" value="Enviar">
+    </form>
+{% endblock contenido %}
+    

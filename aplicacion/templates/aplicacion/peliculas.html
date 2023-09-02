@@ -9,26 +9,48 @@
     <h1>Peliculas y sus directores!!!</h1>
 {% endblock titulo %}
 
-
 {% block contenido %}
-<h1>PELICULAS!!!!!!!!</h1> 
+    <h1>{{ titulo }}</h1>
+    <table class="table table-dark table-striped">
+        <thead>
 
-<table>
-    <tr>
-        <th>Titulo</th>
-        <th>Genero</th>
-        <th>Duracion</th>
-        <th>Director</th>
-    </tr>
-{% for c in peliculas %}
-<tr>
-    <td>{{ c.titulo }}</td>
-    <td>{{ c.genero.nombre }}</td>
-    <td>{{ c.duracion }}</td>
-    <td>{{ c.director.nombre }}</td>
-</tr>  
-{% endfor %}
-</table> 
+            <tr>
+                <th>ID</th>
+                <th>Titulo</th>
+                <th>Genero</th>
+                <th>Duracion</th>
+                <th>Director</th>
+                <th>Año</th>
+            </tr>
+        </thead>
+<tbody>
+
+            </tr>
+    {% for c in peliculas  %}
+            <tr>
+                <td>{{ c.id }}</td>
+                <td>{{ c.titulo }}</td>
+                <td>{{ c.genero.nombre }}</td>
+                <td>{{ c.duracion }}</td>
+                <td>{{ c.director.nombre }}</td>
+                <td>{{ c.ano }}</td>
+                <td>
+                    <a
+                    href="{% url 'modifPelicula' id_pelicula=c.id %}"
+                    class="btn btn-primary"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                    ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                    <a
+                        href="{% url 'deletePelicula' id_pelicula=c.id %}"
+                        class="btn btn-danger"
+                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                        ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+                    </a>
+                </td>
+            </tr>
+
+    {% endfor %}
+        </tbody>
+</table>
 {% endblock contenido %}
-
 

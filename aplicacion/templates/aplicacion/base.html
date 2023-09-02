@@ -27,6 +27,16 @@
                 {% block boton %}
             
                 {% endblock boton %}
+                
+                <img src="{{ request.session.avatar }}" height="40px" weight="40px">
+                <p style="color:green">Hola {{user.username}}</p>
+                <div class="text-center">
+                    </div>
+                    <a class="btn btn-primary" href="{% url 'editar_perfil' %}">Perfil</a>
+                    <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
+                    <a class="btn btn-success" href="{% url 'registro' %}">Registro</a>
+                    <a class="btn btn-primary" href="{% url 'login' %}">Login</a>
+                    <a class="btn btn-primary" href="{% url 'agregar_avatar' %}">Avatar</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -49,7 +59,7 @@
             
                             {% endblock titulo %}
                                 
-                            <span class="subheading">Un trabajo para la tercera entrega!</span>
+                            <span class="subheading">Mi trabajo final!</span>
                         </div>
                     </div>
                 </div>

@@ -96,28 +96,28 @@ def contact(request):
 
 
 @login_required
-#@permission_required('')
 def modifPelicula(request, id_pelicula):
-    pelicula = Pelicula.objects.get(id=id_pelicula)
+    generos = Genero.objects.all()
+    directores = Director.objects.all()
     if request.method == "POST":
-        miForm = peliculaForm(request.POST)
-        if miForm.is_valid():
-            pelicula.titulo = miForm.cleaned_data.get('titulo')
-            pelicula.genero = miForm.cleaned_data.get('genero')
-            pelicula.duracion = miForm.cleaned_data.get('duracion')
-            pelicula.director = miForm.cleaned_data.get('director')
-            pelicula.ano = miForm.cleaned_data.get('ano')
-            pelicula.save()
-            return redirect(reverse_lazy('peliculas'))
-    else:
-        miForm = peliculaForm(initial={
-            'titulo': pelicula.titulo,
-            'genero': pelicula.genero,
-            'duracion': pelicula.duracion,
-            'director': pelicula.director,
-            'ano': pelicula.ano
-        })
-    return render(request, "aplicacion/pelicula_form_modif.html", {"form":miForm})
+        genero_id = request.POST['genero']
+        genero_instance = Genero.objects.get(pk=genero_id)
+        
+        director_id = request.POST['director']
+        director_instance = Director.objects.get(pk=director_id)
+        
+        pelicula = Pelicula(
+            titulo=request.POST['titulo'],
+            genero=genero_instance,
+            duracion=request.POST['duracion'],
+            director=director_instance,
+            ano=request.POST['ano'],
+        )
+        pelicula.save()
+        return HttpResponse("Pelicula guardada con exito")
+        return redirect('peliculas')
+    
+    return render(request, "aplicacion/pelicula_form_modif.html", {"generos": generos, "directores": directores})
 
 
 @login_required
